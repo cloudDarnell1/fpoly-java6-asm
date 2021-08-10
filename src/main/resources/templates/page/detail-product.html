@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/layout/index :: layout(~{::.product}, ~{::link}, ${product.name})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/detail_product.css}">
+</head>
+<body>
+  <div class="product">
+    <img class="product__image" th:src="@{|/${product.image}|}" alt="${product.name}">
+    <div class="product__info">
+      <div>
+        <p class="info__name">[[${product.name.toUpperCase()}]]</p>
+        <p class="info__price" th:text="${product.price}"></p>
+        <a class="info__btn"
+           th:href="@{|/order?product_id=${product.id}&category_id=${product.category.id}|}"
+           target="_blank">Mua Ngay</a>
+        <div class="info__desc">
+          <h4 class="desc__text">[[${product.description}]]</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

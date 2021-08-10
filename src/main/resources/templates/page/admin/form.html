@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" th:replace="~{/layout/layout_admin :: adminLayout(~{::#main-content}, 'Form')}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<section id="main-content" style="transition: all 0.5s; scroll-behavior: smooth">
+    <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Form Components</h3>
+
+        <!-- INLINE FORM ELELEMNTS -->
+        <div class="row mt" id="category">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> Loại sản phẩm</h4>
+                    <form th:action="@{/admin/category#category}" class="form-inline" role="form"  method="POST">
+                        <input type="hidden" name="id" th:value="${category.id}"/>
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail2">Tên loại</label>
+                            <input class="form-control" id="exampleInputEmail2" th:value="${category.name}" placeholder="Nhập loại sản phẩm" name="name"/>
+                        </div>
+                        <button class="btn btn-theme">Submit</button>
+                    </form>
+                </div><!-- /form-panel -->
+            </div><!-- /col-lg-12 -->
+        </div><!-- /row -->
+
+        <!-- INLINE FORM ELELEMNTS -->
+        <div class="row mt" id="ice">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> Đá (%)</h4>
+                    <form th:action="@{/admin/ice#ice}" class="form-inline" role="form" method="POST">
+                        <input type="hidden" name="id" th:value="${ice.id}"/>
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail2">Tỷ lệ</label>
+                            <input type="number" class="form-control" placeholder="Nhập tỷ lệ đá" name="icePercent" th:value="${ice.icePercent}"/>
+                        </div>
+                        <button class="btn btn-theme">Submit</button>
+                    </form>
+                </div><!-- /form-panel -->
+            </div><!-- /col-lg-12 -->
+        </div><!-- /row -->
+
+        <!-- INLINE FORM ELELEMNTS -->
+        <div class="row mt" id="sugar">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> Đường (%)</h4>
+                    <form th:action="@{/admin/sugar#sugar}" class="form-inline" role="form" method="POST">
+                        <input name="id" type="hidden" th:value="${sugar.id}"/>
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail2">Tỷ lệ</label>
+                            <input type="number" class="form-control" placeholder="Nhập tỷ lệ đường" name="sugarPercent" th:value="${sugar.sugarPercent}"/>
+                        </div>
+                        <button type="submit" class="btn btn-theme">Submit</button>
+                    </form>
+                </div><!-- /form-panel -->
+            </div><!-- /col-lg-12 -->
+        </div><!-- /row -->
+
+        <!-- INLINE FORM ELELEMNTS -->
+        <div class="row mt" id="size">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> Size</h4>
+                    <form th:action="@{/admin/size#size}" class="form-inline" role="form" method="POST">
+                        <input type="hidden" name="id" th:value="${size.id}"/>
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail2">Size</label>
+                            <input type="text" class="form-control" placeholder="Nhập size" name="name" th:value="${size.name}"/>
+                        </div>
+                        <button type="submit" class="btn btn-theme">Submit</button>
+                    </form>
+                </div><!-- /form-panel -->
+            </div><!-- /col-lg-12 -->
+        </div><!-- /row -->
+
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt" id="topping">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> Topping</h4>
+                    <form th:action="@{/admin/topping#topping}" class="form-horizontal style-form" method="POST">
+                        <input name="id" type="hidden" th:value="${topping.id}"/>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Tên topping</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="Nhập tên topping" name="name" th:value="${topping.name}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Giá</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" placeholder="Nhập giá topping" name="price" th:value="${topping.price}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <button class="btn btn-theme">submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- col-lg-12-->
+        </div><!-- /row -->
+
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt" id="product">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> Sản phẩm</h4>
+                    <form th:action="@{/admin/product#product}" class="form-horizontal style-form" enctype="multipart/form-data" method="POST">
+                        <input type="hidden" th:value="${product.id}" name="id"/>
+                        <input type="hidden" th:value="${product.image}" name="image"/>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Tên sản phẩm</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Tên sản phẩm" th:value="${product.name}" name="name"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Mô tả</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="mô tả" th:value="${product.description}" name="description"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Giá</label>
+                            <div class="col-sm-10">
+                                <input name="price" type="number" class="form-control" th:value="${product.price}" placeholder="Giá"/>
+                                <span class="help-block">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Giảm giá(%)</label>
+                            <div class="col-sm-10">
+                                <input name="sale" type="number" class="form-control" th:value="${product.sale}" placeholder="Giảm giá"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label path="category" class="col-sm-2 col-sm-2 control-label">Loại sản phẩm</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="category">
+                                    <option th:each="category : ${categories}" th:selected="${product.category ne null ? category.id eq product.category.id : false}" th:value="${category.id}">[[${category.name}]]</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Image</label>
+                            <label for="file" class="fancybox col-sm-10" style="width: 30%; cursor: pointer">
+                                <img style="height: 200px; width: 200px; border: 1px solid #ccc" class="img-responsive" th:src="@{|/${product.image}|}" alt="">
+                            </label>
+                            <input type="file" style="display: none" id="file" name="file">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <button class="btn btn-theme">submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- col-lg-12-->
+        </div><!-- /row -->
+
+    </section><! --/wrapper -->
+    <script th:src="@{/js/admin-form.js}"></script>
+</section><!-- /MAIN CONTENT -->
+
+</body>
+</html>

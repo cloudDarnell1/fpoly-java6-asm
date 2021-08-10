@@ -1,0 +1,182 @@
+
+.order {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: 4;
+}
+.order__background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(59, 54, 54, .3);
+}
+.order__product-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+    margin: auto;
+    animation: open-order 1s forwards;
+    width: 580px;
+}
+
+.product-form-info {
+    display: flex;
+}
+
+@keyframes open-order {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1A);
+    }
+}
+
+.product-form-info__product-image {
+    width: 30%;
+    height: 30%;
+}
+
+.product-form-info__info {
+    padding-left: 20px;
+    flex-grow: 1;
+}
+
+.product-form-info__info * {
+    padding: 8px 0px;
+}
+
+.form-info__name {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Baloo 2', cursive;
+}
+
+.form-info__price {
+    font-size: 1.5rem;
+    color: var(--brown-color-dark);
+    font-weight: bold;
+}
+
+.form-info__desc {
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+    font-style: italic;
+}
+
+.form-info__like {
+    width: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.form-info__action {
+    display: flex;
+    align-items: center;
+    margin-left: -15px;
+}
+
+.form-action__handle {
+    background: var(--brown-color-primary);
+    font-size: 1.3rem;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    margin-left: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.form-action__handle--circle {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    padding: 4px 0px;
+    margin: 0 15px;
+    font-size: 2rem;
+}
+
+.form-action__handle--blue {
+    background-color: var(--blue-color);
+}
+
+.form-action__handle--long {
+    width: 142px;
+    margin-left: 40px;
+}
+
+.form-action__quantity {
+    font-size: 1.5rem;
+    max-width: 2rem;
+    cursor: default;
+}
+
+.product-form-option {
+    flex: 1;
+    line-height: 40px;
+    max-height: 360px;
+    overflow-y: scroll;
+
+}
+
+.size__heading,.sugar__heading,.ice__headding,.topping__heading {
+    background: white;
+    font-size: 2rem;
+    font-family: 'Baloo 2', cursive;
+
+}
+
+.size__list-sizes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.size__select {
+    display: flex;
+    line-height: 30px;
+    flex-basis: 50%;
+}
+
+.select__radio {
+    min-width: 40px;
+    height: 18px;
+    margin: auto;
+}
+
+.select__text {
+    flex: 1;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.select__text2 {
+    flex: 2;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sugar__list-sugars,.ice__list-ices {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.list__select {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.list__select--full-width {
+    width: 100%;
+}

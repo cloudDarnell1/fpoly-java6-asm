@@ -1,0 +1,67 @@
+<div ng-controller="form" ng-show="isOrder">
+  <form class="order">
+    <div class="order__background" ng-click="hideForm()"></div>
+    <div class="order__product-form">
+      <input hidden="hidden" value="{{product.id}}" name="product">
+      <div class="product-form-info">
+        <img class="product-form-info__product-image" src="{{product.image}}">
+        <div class="product-form-info__info">
+          <p class="form-info__name">{{product.name}}</p>
+          <p class="form-info__price">
+            {{product.price}}
+          </p>
+          <p class="form-info__desc">Chưa có thông tin.</p>
+          <img class="form-info__like" alt="heart" th:src="@{/images/heart.png}">
+          <div class="form-info__action">
+            <button class="form-action__handle form-action__handle--blue form-action__handle--circle" ng-click="increaseQuantity()">+</button>
+            <input  class="form-action__quantity" name="quantity" ng-model="item.quantity" readonly>
+            <button class="form-action__handle form-action__handle--blue form-action__handle--circle" ng-click="decreaseQuantity()">-</button>
+            <button class="form-action__handle form-action__handle--long" ng-click="order()">MUA NGAY</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-form-option">
+        <div class="option__size">
+          <h3 class="size__heading">Chọn size</h3>
+          <div class="size__list-sizes">
+            <div ng-repeat="(index,size) in sizes" class="size__select">
+              <input ng-checked="index === 0" id="size-{{size.id}}" class="select__radio" type="radio" value="{{size.id}}" ng-click="setSize(size)" name="size" />
+              <label class="select__text" for="size-{{size.id}}">{{size.name}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="option__sugar">
+          <h3 class="sugar__heading">Chọn đường</h3>
+          <div class="sugar__list-sugars">
+            <div ng-repeat="(index,sugar) in sugars" class="list__select">
+              <input ng-checked="index === 0" id="sugar-{{sugar.id}}" class="select__radio" type="radio" value="{{sugar.id}}" name="sugar" ng-click="setSugar(sugar)">
+              <label class="select__text" for="sugar-{{sugar.id}}">{{sugar.sugarPercent}}% đường</label>
+            </div>
+          </div>
+        </div>
+        <div class="option__ice">
+          <h3 class="ice__headding">Chọn đá</h3>
+          <div class="ice__list-ices">
+            <div ng-repeat="(index, ice) in ices" class="list__select">
+              <input ng-checked="index === 0" id="ice-{{ice.id}}" class="select__radio" type="radio"
+                     value="{{ice.id}}" name="ice" ng-click="setIce(ice)"> <label
+                    class="select__text" for="ice-{{ice.id}}">{{ice.icePercent}}% đá</label>
+            </div>
+          </div>
+        </div>
+        <div class="option__topping">
+          <h3 class="topping__heading">Chọn topping</h3>
+          <div class="topping__list-toppings">
+            <div ng-repeat="topping in toppings" class="list__select list__select--full-width">
+              <input id="topping-{{topping.id}}" class="select__radio"
+                     type="checkbox" value="{{topping.id}}" ng-click="addTopping(topping, $event)" name="topping">
+              <label class="select__text" for="topping-{{topping.id}}">{{topping.name}}</label>
+              <label class="select__text2" for="topping-{{topping.id}}">+{{topping.price}}</label>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

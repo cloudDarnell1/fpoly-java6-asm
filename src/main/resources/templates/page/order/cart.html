@@ -1,0 +1,37 @@
+<div ng-controller="cart" class="body__cart">
+  <div class="cart__header">
+    <h3 class="header__heading">Giỏ Hàng</h3>
+    <span style="cursor:pointer;" class="header__clean" ng-click="clear()">xóa tất cả</span>
+  </div>
+  <div class="cart__items">
+      <p ng-show="carts.length === 0" class="items__status">Bạn chưa chọn sản phẩm nào!</p>
+      <div ng-hide="carts.length === 0" ng-repeat="cart in carts" class="items__item">
+        <div class="item__info">
+          <p class="item-info__name">{{cart.product.name}}</p>
+          <p class="item-info__size">
+            {{cart.size.name}}, {{cart.ice.icePercent}}% đá, {{cart.sugar.sugarPercent}}% đường
+            <span ng-repeat="topping in cart.topping">
+              ,{{topping.name}}
+            </span>
+          </p>
+          <p class="item-info__price">
+            {{cart.product.price}} x {{cart.quantity}} = {{cart.price}}
+          </p>
+        </div>
+        <div class="item__action">
+          <p class="action__handle action__handle--left" ng-click="decreaseQuantity(cart)">-</p>
+          <p class="action__quantity">{{cart.quantity}}</p>
+          <p class="action__handle action__handle--right" ng-click="increaseQuantity(cart)">+</p>
+        </div>
+      </div>
+  </div>
+  <div class="cart__pay">
+    <div class="pay__info">
+      <img class="info__img" alt="cup" th:src="@{/images/cup.png}">
+      <span class="info__cal">
+        x {{totalQuantity}} = {{total}}
+      </span>
+    </div>
+    <span style="cursor:pointer;" class="pay__btn" ng-click="payment()">Thanh toán</span>
+  </div>
+</div>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" th:replace="~{/layout/layout_admin :: adminLayout(~{::#main-content}, 'Quản lý tài nguyên')}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<section id="main-content">
+    <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Basic Table Examples</h3>
+        <div class="row">
+
+            <div class="col-md-12" id="ice">
+                <div class="content-panel">
+                    <h4>
+                        <i class="fa fa-angle-right"></i>
+                        Đá
+                        <a th:href="@{/admin/form#ice}" class="btn btn-success">Thêm đá</a>
+                    </h4>
+                    <hr>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tỷ lệ</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="ice : ${ices}">
+                            <td>[[${ice.id}]]</td>
+                            <td>[[${ice.icePercent}]]%</td>
+                            <td>
+                                <a th:href="@{|/admin/form?ice_id=${ice.id}#ice|}" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a th:href="@{|/admin/ice/${ice.id}|}" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o "></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><! --/content-panel -->
+            </div><!-- /col-md-12 -->
+
+            <div class="col-md-12 mt" id="size">
+                <div class="content-panel">
+                    <table class="table table-hover">
+                        <h4>
+                            <i class="fa fa-angle-right"></i>
+                            Size
+                            <a th:href="@{/admin/form#size}" class="btn btn-success">Thêm size</a>
+                        </h4>
+                        <hr>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Size</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="size : ${sizes}">
+                            <td>[[${size.id}]]</td>
+                            <td>[[${size.name}]]</td>
+                            <td>
+                                <a th:href="@{|/admin/form?size_id=${size.id}#size|}" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a th:href="@{|/admin/size/${size.id}|}" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o "></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><! --/content-panel -->
+            </div><!-- /col-md-12 -->
+
+
+            <div class="col-md-12 mt" id="sugar">
+                <div class="content-panel">
+                    <table class="table table-hover">
+                        <h4>
+                            <i class="fa fa-angle-right"></i>
+                            Đường
+                            <a th:href="@{/admin/form#sugar}" class="btn btn-success">Thêm đường</a>
+                        </h4>
+                        <hr>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tỷ lệ</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="sugar : ${sugars}">
+                            <td>[[${sugar.id}]]</td>
+                            <td>[[${sugar.sugarPercent}]]%</td>
+                            <td>
+                                <a th:href="@{|/admin/form?sugar_id=${sugar.id}#sugar|}" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a th:href="@{|/admin/sugar/${sugar.id}|}" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o "></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><! --/content-panel -->
+            </div><!-- /col-md-12 -->
+
+            <div class="col-md-12 mt" id="topping">
+                <div class="content-panel">
+                    <table class="table table-hover">
+                        <h4>
+                            <i class="fa fa-angle-right"></i>
+                            Topping
+                            <a th:href="@{/admin/form#topping}" class="btn btn-success">Thêm topping</a>
+                        </h4>
+                        <hr>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="topping : ${toppings}">
+                            <td>[[${topping.id}]]</td>
+                            <td>[[${topping.name}]]</td>
+                            <td>[[${topping.price}]]</td>
+                            <td>
+                                <a th:href="@{|/admin/form?topping_id=${topping.id}#topping|}" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a th:href="@{|/admin/topping/${topping.id}|}" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o "></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><! --/content-panel -->
+            </div><!-- /col-md-12 -->
+        </div><!-- row -->
+    </section><! --/wrapper -->
+    <script>
+        const allBtnDelete = document.querySelectorAll('.btn-danger')
+        allBtnDelete.forEach( btnDelete => {
+            btnDelete.addEventListener('click', event => {
+                const sure = confirm('Are you sure?')
+                if (!sure) {
+                    event.preventDefault()
+                }
+            })
+        })
+    </script>
+</section><!-- /MAIN CONTENT -->
+</body>
+</html>

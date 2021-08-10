@@ -1,0 +1,18 @@
+# Service
+server:
+  cors: localhost
+
+# Datasource Configuration
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Admin@admin123
+    username: admin
+    url: jdbc:mysql://localhost:3306/java5_database
+
+# Hibernate Properties
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true

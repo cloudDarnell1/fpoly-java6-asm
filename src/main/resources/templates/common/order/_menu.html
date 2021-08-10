@@ -1,0 +1,13 @@
+<div class="body__menu">
+  <h3 class="menu__heading">Danh Mục</h3>
+  <ul class="menu__list-categories">
+    <li th:each="category : ${categories}" class="list-categories__category">
+      <a class="category__name" th:href="@{|/order?category_id=${category.id}&page=1|}">
+        [[${category.getName()}]]
+      </a>
+      <a class="category__amount" th:href="@{|/order?category_id=${category.id}&page=1|}">
+        [[${category.products.size()}]]
+      </a>
+    </li>
+  </ul>
+</div>

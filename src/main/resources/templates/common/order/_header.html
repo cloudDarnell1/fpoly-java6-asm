@@ -1,0 +1,16 @@
+<div class="header" ng-controller="header">
+  <a target="_blank" th:href="@{/home}">
+    <img style="width: 75%" alt="Logo" th:src="@{/images/logo2.png}">
+  </a>
+  <div class="header__search">
+    <img class="search__icon" th:src="@{/images/search.png}" alt="search-icon">
+    <input ng-model="keyword" class="search__text" type="text" placeholder="Tìm kiếm sản phẩm" ng-focus="showResult()" ng-blur="hideResult()" ng-keydown="search()">
+  </div>
+  <div th:unless="${session.login}" >
+    <a class="header__btn" th:href="@{/login}">Đăng Nhập</a>
+  </div>
+  <div th:if="${session.login}">
+    <a class="header__btn" th:href="@{/logout}">[[${session.login.username}]]</a>
+  </div>
+</div>
+

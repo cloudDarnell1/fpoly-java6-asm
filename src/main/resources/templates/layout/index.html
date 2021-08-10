@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(main, css, title)">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${title}]]</title>
+    <link rel="icon" th:href="@{/images/icon_page.png}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/_layout.css}">
+    <link rel="stylesheet" th:href="@{/css/_header.css}">
+    <link rel="stylesheet" th:href="@{/css/_footer.css}">
+    <link th:replace="${css}">
+</head>
+<body ng-app="totocoto">
+    <div th:replace="~{/common/_header :: .header}"></div>
+    <div th:replace="${main}"></div>
+    <div th:replace="~{/common/_footer :: .footer}"></div>
+</body>
+    <script th:src="@{/js/_header.js}"></script>
+    <script th:src="@{/js/_layout.js}"></script>
+    <script th:src="@{/js/fontawesome.js}"></script>
+</html>

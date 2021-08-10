@@ -1,0 +1,60 @@
+* {
+    border: none;
+    outline: none;
+
+    text-decoration: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(
+                    rgba(0, 0, 0, 0.7),
+                    rgba(0, 0, 0, 0.7)),
+                    url(/images/ft_bg_img.png) no-repeat center;
+    font-family: Barlow;
+}
+
+.login {
+
+}
+
+.login__form {
+    width: 35%;
+    background-color: white;
+    padding: 20px 30px 20px 30px;
+    margin: auto;
+    margin-top: 100px ;
+    border-radius: 20px;
+}
+
+form {
+    width: 60%;
+    margin: auto;
+}
+
+.form__input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input > input {
+    line-height: 20px;
+    border-bottom: 1px solid #d6cdbc;
+    padding: 10px 0 10px 0;
+}
+
+form > div {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #d8b979;
+    width: 100%;
+    line-height: 40px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 3px 25px 0 rgb(0 0 0 / 20%);
+    font-size: 1.3rem;
+}

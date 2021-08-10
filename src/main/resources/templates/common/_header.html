@@ -1,0 +1,42 @@
+<div class="header">
+    <div class="header__status-bar">
+        <a class="status-bar__logo" th:href="@{/home}">
+            <img class="logo__img" th:src="@{/images/logo.png}" alt="logo">
+        </a>
+        <ul class="status-bar__menu">
+            <li class="menu__nav">
+                <a class="nav__text" th:href="@{/home}"> TRANG CHỦ </a>
+            </li>
+            <li class="menu__nav">
+                <a target="_blank" class="nav__text" th:href="@{/order}">MUA HÀNG</a>
+            </li>
+            <li class="menu__nav">
+                <a class="nav__text" >SẢN PHẨM</a>
+            </li>
+            <li class="menu__nav">
+                <a class="nav__text" >TIN TỨC</a>
+            </li>
+            <li class="menu__nav">
+                <a class="nav__text" >CỬA HÀNG</a>
+            </li>
+            <li class="menu__nav">
+                <a class="nav__text" >TUYỂN DỤNG</a>
+            </li>
+            <li class="menu__nav">
+                <a class="nav__text" th:href="@{/history}">LỊCH SỬ MUA HÀNG</a>
+            </li>
+            <li th:unless="${session.login}" class="menu__nav">
+                <a th:href="@{/login}">
+                    <i style="font-size: 2rem; color: white; transform: rotateZ(180deg)" class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+
+            <li class="menu__nav" th:if="${session.login}">
+                <a th:href="@{/logout}">
+                    <i style="font-size: 2rem; color: white" class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <h2 class="header__text-intro">TOCOTOCO MENU</h2>
+</div>

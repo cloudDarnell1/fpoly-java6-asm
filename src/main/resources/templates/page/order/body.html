@@ -1,0 +1,22 @@
+<div ng-controller="list" class="body__products">
+    <h3 class="products__heading">Sản Phẩm: [[${category.name}]]</h3>
+    <div class="products__list-products">
+        <h1 th:unless="${products.size() > 0}" style="font-size: 1.5rem; margin-left: 20px">Không có sản phẩm nào!</h1>
+        <div th:each="product : ${products}" class="list-products__product">
+            <img class="product__img" th:src="@{|/${product.image}|}" th:alt="${product.name}">
+            <div>
+                <div class="product__info">
+                    <p class="info__name">[[${product.name}]]</p>
+                    <p class="info__price">[[${product.price}]]</p>
+                </div>
+                <a class="product__btn" th:attr="ng-click=@{|showForm(${product.id})|}">+</a>
+            </div>
+        </div>
+    </div>
+    <!--<div class="body__pagination">
+        <a th:each="page : ${pages}" th:href="@{|/order?category_id=${#request.getParameter('category_id')}&page=${page}|}"
+           class="pagination">
+           [[${page}]]
+        </a>
+    </div>-->
+</div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/layout/index :: layout(~{::body}, ~{::link}, 'Lịch sử mua hàng')}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/history.css}">
+</head>
+<body>
+<div style="text-align: center; margin-top: 50px">
+    <a class="btn" th:href="@{/history}">Tất cả</a>
+    <a class="btn" th:href="@{/history?today}">Hôm nay</a>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>
+            <a style="color: white; font-size: 1.5rem" >Mã hóa đơn</a>
+        </th>
+        <th>
+            <a style="color: white; font-size: 1.5rem"  >Ngày</a>
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>Size</th>
+        <th>Topping</th>
+        <th>Đá</th>
+        <th>Đường</th>
+        <th>Số lượng</th>
+        <th>Hình thức</th>
+        <th>Tổng tiền</th>
+    </tr>
+    </thead>
+    <tbody>
+        <th:block th:each="receipt : ${histories}" >
+            <tr th:each="item,index : ${receipt.items}">
+                <td th:if="${index.index == 0}" th:rowspan="${receipt.items.size()}">[[${receipt.id}]]</td>
+                <td th:if="${index.index == 0}" th:rowspan="${receipt.items.size()}">[[${receipt.date}]]</td>
+                <td>[[${item.product.name}]]</td>
+                <td>[[${item.size.name}]]</td>
+                <td>
+                    <th:block th:if="${item.topping.size() eq 0}">
+                        không có topping
+                    </th:block>
+                    <th:block th:each="tp : ${item.topping}">
+                        [[${tp.name}]],
+                    </th:block>
+                </td>
+
+                <td>[[${item.ice.icePercent}]]%</td>
+                <td>[[${item.sugar.sugarPercent}]]%</td>
+                <td>[[${item.quantity}]]</td>
+                <td>Tiền mặt</td>
+                <td>[[${item.quantity * item.product.price}]]</td>
+            </tr>
+            <tr style="height: 5px"/>
+        </th:block>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<div id="sidebar"  class="nav-collapse ">
+    <!-- sidebar menu start-->
+    <ul class="sidebar-menu" id="nav-accordion">
+
+        <p class="centered">
+            <img th:src="@{/images/me.png}" class="img-circle" width="60">
+        </p>
+        <h5 class="centered">BuiThaoMay</h5>
+
+        <li class="mt">
+            <a th:class="${#request.getAttribute('active') eq 'user' ? 'active' : ''}" th:href="@{/admin/user}">
+                <i class="fa fa-dashboard"></i>
+                <span>Quản lý người dùng</span>
+            </a>
+        </li>
+
+        <li class="mt">
+            <a th:class="${#request.getAttribute('active') eq 'category' ? 'active' : ''}" th:href="@{/admin/category-management}" >
+                <i class="fa fa-desktop"></i>
+                <span>Quản lý loại sản phẩm</span>
+            </a>
+        </li>
+
+        <li class="mt">
+            <a th:class="${#request.getAttribute('active') == 'product' ? 'active' : ''}" th:href="@{/admin/product-management}" >
+                <i class="fa fa-desktop"></i>
+                <span>Quản lý sản phẩm</span>
+            </a>
+        </li>
+
+        <li class="mt">
+            <a th:class="${#request.getAttribute('active') eq 'resources' ? 'active' : ''}" th:href="@{/admin/resources-management}" >
+                <i class="fa fa-cogs"></i>
+                <span>Quản lý tài nguyên</span>
+            </a>
+        </li>
+
+        <li class="mt">
+            <a th:class="${#request.getAttribute('active') eq 'receipt' ? 'active' : ''}" th:href="@{/admin/receipt-management}" >
+                <i class="fa fa-desktop"></i>
+                <span>Quản lý hóa đơn</span>
+            </a>
+        </li>
+
+        <li class="mt">
+            <a th:class="${#request.getAttribute('active') eq 'form' ? 'active' : ''}" th:href="@{/admin/form}" >
+                <i class="fa fa-desktop"></i>
+                <span>Form</span>
+            </a>
+        </li>
+    </ul>
+    <!-- sidebar menu end-->
+</div>

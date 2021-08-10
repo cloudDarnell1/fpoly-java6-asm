@@ -1,0 +1,59 @@
+.result-container {
+    width: 500px;
+    position: fixed;
+    top: 61px;
+    left: 33%;
+    z-index: 100000;
+    background: white;
+    padding: 0 10px;
+    overflow: scroll;
+    transition: all 0.5s;
+    animation: show-result 1s forwards;;
+}
+
+@keyframes show-result {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 500px;
+    }
+}
+
+.result-row {
+    height: 100px;
+    display: flex;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.result-row > img {
+    width: 20%
+}
+
+.result-row > .info {
+    padding: 10px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info .name {
+    color: black;
+    font-size: 2rem;
+    font-family: 'Baloo 2', cursive;
+}
+
+.info .price {
+    color: var(--brown-color-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Baloo 2', cursive;
+}
+
+.info .desc {
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+    font-style: italic;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="result-container" ng-controller="result" ng-show="isShowResult">
+
+        <div ng-repeat="product in results" class="result-row" ng-click="showForm(product.id)">
+            <img src="{{product.image}}" alt="">
+            <div class="info">
+                <span class="name">{{product.name}}</span>
+                <span class="price">{{product.price}}</span>
+                <span class="desc">{{product.description}}</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

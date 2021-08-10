@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt hàng</title>
+    <link rel="icon" th:href="@{/images/icon_page.png}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/order.css}">
+    <link rel="stylesheet" th:href="@{/css/order_form.css}">
+    <link rel="stylesheet" th:href="@{/css/_loader.css}">
+    <link rel="stylesheet" th:href="@{/css/pagination.css}">
+    <link rel="stylesheet" th:href="@{/css/result.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body ng-app="totocoto">
+    <div th:replace="~{/common/order/_header :: .header}"></div>
+    <div th:replace="~{/page/order/result-search :: .result-container}"></div>
+    <div class="body">
+        <div class="body__menu"     th:replace="~{/common/order/_menu :: .body__menu}"></div>
+        <div class="body__products" th:replace="~{/page/order/body :: .body__products}"></div>
+        <div class="body__cart"     th:replace="~{/page/order/cart :: .body__cart}"></div>
+    </div>
+
+    <div th:replace="~{/page/order/form :: div}"></div>
+</body>
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script th:src="@{/js/angularjs/order/const.js}"></script>
+    <script th:src="@{/js/angularjs/order/service/product.service.js}"></script>
+    <script th:src="@{/js/angularjs/order/service/size.service.js}"></script>
+    <script th:src="@{/js/angularjs/order/service/sugar.service.js}"></script>
+    <script th:src="@{/js/angularjs/order/service/ice.service.js}"></script>
+    <script th:src="@{/js/angularjs/order/service/topping.service.js}"></script>
+    <script th:src="@{/js/angularjs/order/service/noti.service.js}"></script>
+    <script th:src="@{/js/angularjs/order/service/payment.service.js}"></script>
+    <script th:src="@{/js/angularjs/order/result.component.js}"></script>
+    <script th:src="@{/js/angularjs/order/form.component.js}"></script>
+    <script th:src="@{/js/angularjs/order/list.component.js}"></script>
+    <script th:src="@{/js/angularjs/order/cart.component.js}"></script>
+</html>
